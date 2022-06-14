@@ -12,7 +12,7 @@ Conventional prediction methods...
 
 ## Overview
 
-We want our software to intercept the regular game loop consisting of physics updates, responses to user input, rendering etc. We then record necessary information such as vehicle position, rotation and velocity of enemy helicopters to feed this information into our network. The prediction can then be used to e.g. automatically adjust the user's aim. 
+We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering etc.) to record necessary information such as vehicle position, rotation and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We can use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance to the enemy helicopter.
 
 ![overview](https://user-images.githubusercontent.com/79590619/173553307-e212fe6d-dd82-415e-a120-e70a2e524bb3.png)
 
