@@ -8,7 +8,7 @@ Some disclaimers at first:
 
 ## Why a neural network?
 
-In Battlefield 4, helicopters are very agile, and bullets have ballistics. We usually have to aim quite distant from the location on the player screen to hit something. Since the helicopters are agile and thus hard to predict, hitting helicopters using an aimbot is quite challenging.
+In Battlefield 4, helicopters are very agile and bullets have ballistics. We usually have to aim quite far ahead from the location on the player screen to hit an enemy. Since the helicopters are agile and thus hard to predict, consistently hitting helicopters using an aimbot is challenging.
 
 ![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
 
