@@ -17,7 +17,7 @@ We want our software to intercept the regular game loop (consisting of physics u
 ![overview](https://user-images.githubusercontent.com/79590619/173553307-e212fe6d-dd82-415e-a120-e70a2e524bb3.png)
 
 ## Goals
-- High accuracy (± 1 m) over long distances (300 - 1000 m) and bullet travel times up to 1 second.
+- High accuracy (± 3 m) over long distances (300 - 1000 m) and bullet travel times up to 1 second.
 - Smooth and consistent predictions (i.e. no jitter when aiming).
 - High responsiveness to sudden changes of movement (e.g. detect strong acceleration and adjust predictions quickly)
 
