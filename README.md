@@ -64,6 +64,6 @@ We train our network over 100 epochs with a batch size of 32 on shuffled data us
 
 ## Results
 
-We measure a significant overall increase in accuracy (2.09x) with our neural network compared to the old method using linear extrapolation. Our new method increases the frontal accuracy range (where the helicopter is looking at the player, thus the hitbox is smaller) from 0.35 s to 0.55 s and the sideways accuracy range (where the hitbox is longer due to the tail) from 0.65 to 0.95 s.
+We measure a **significant overall increase in accuracy (2.09x)** with our neural network compared to the old method using linear extrapolation. Our new method increases the frontal accuracy range (where the helicopter is looking at the player, thus the hitbox is smaller) from 0.35 s to 0.55 s and the sideways accuracy range (where the hitbox is longer due to the tail) from 0.65 to 0.95 s.
 
 ![prediction_error](https://user-images.githubusercontent.com/79590619/173598826-9e08ea87-1fbc-4b1f-83ec-b95414e94dba.png)
