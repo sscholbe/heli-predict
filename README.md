@@ -67,3 +67,7 @@ We train our network over 100 epochs with a batch size of 32 on shuffled data us
 We measure a **significant increase in accuracy (2.09x)** with our neural network compared to the old method using linear extrapolation. Our new method increases the frontal accuracy range (where the helicopter is looking at the player; thus, the hitbox is smaller) from 0.35 s to 0.55 s and the sideways accuracy range (where the hitbox is longer due to the tail) from 0.65 to 0.95 s.
 
 ![prediction_error](https://user-images.githubusercontent.com/79590619/173598826-9e08ea87-1fbc-4b1f-83ec-b95414e94dba.png)
+
+## Application in practice
+
+With the trajectory prediction working, we can create an aimbot by finding the intersection between a bullet trajectory (which can be well approximated using a polynomial of degree two) and the predicted helicopter trajectory polynomial. We then simulate user input to aim at the correct location and shoot. The following animations show the aimbot in action.
