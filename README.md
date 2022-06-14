@@ -12,6 +12,8 @@ In Battlefield 4, helicopters are very agile and bullets have ballistics. We usu
 
 ![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
 
+### Linear extrapolation
+
 While the bullet ballistics can be well predicted, the helicopter trajectory cannot. The standard approach is to do linear extrapolation to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position.
 
 ![linear_extrapolation](https://user-images.githubusercontent.com/79590619/173618459-82ad9475-f0f7-49c4-ab80-71c232e91c5b.png)
