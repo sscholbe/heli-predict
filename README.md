@@ -3,8 +3,8 @@ This is a machine learning side project I have worked on from time to time for t
 
 Some disclaimers at first:
 - This project is solely for educational purposes, and I do not endorse cheating.
-- I will not provide any source code.
-- I will not discuss reverse engineering of the engine, anti-cheat bypasses, etc.
+- I do not provide any source code.
+- I do not discuss reverse engineering of the engine, anti-cheat bypasses, etc.
 
 ## Why a neural network?
 
