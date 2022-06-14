@@ -1,4 +1,3 @@
-
 # Neural Network Trajectory Prediction
 This is a machine learning project I tinkered with for the past year. The goal is to increase the accuracy of an aimbot for helicopters in Battlefield 4.
 
@@ -38,7 +37,7 @@ An example of such data looks as follows. The blue line shows the recorded posit
 
 ## Network architecture
 
-We choose a polynomial of degree two per axis as our model to describe the future movement of the helicopter. This seems sufficient for most short term movement. By centering the data around time 0, we can drop the intercept to guarantee continuity. The network thus determines two coefficients per dimension, i.e. a total of six coefficients. Since the evaluation of polynomials is linear, we can add a layer to our network that computes the prediction for each future timestep using a simple matrix multiplication.
+We choose a polynomial of degree two per axis as our model to describe the future movement of the helicopter. This seems sufficient for most short term movement. By centering the data around time 0, we can drop the intercept to guarantee continuity. The network thus determines two coefficients per dimension, i.e. a total of six coefficients.
 
 $$p_{pred}(t)=p_0+\left(
 \begin{array}{c}
@@ -55,15 +54,16 @@ z_2
 \right)(t-t_0)^2
 $$
 
-The network itself consists of three smaller sub-networks that predict two coefficients each (i.e. per axis). They consist of two fully connected layers, a skip connection from the input to the second layer and an ELU activation.
+Since the evaluation of polynomials is linear, we can add a layer to our network that computes the prediction for each future timestep using a simple matrix multiplication. The network itself consists of three smaller sub-networks that predict two coefficients each (i.e. per axis). They each consist of two fully connected layers, a skip connection from the input to the second layer and an ELU activation.
 
 ![network](https://user-images.githubusercontent.com/79590619/173553347-a812efc5-1f65-4b7e-9667-04958d857d87.png)
 
 ## Training
 
-We train our network over 100 epochs with a batch size of 32 on shuffled data. As our loss, we use the mean squared error between our predictions (i.e. the evaluated polynomial) and the ground truth. On Google Colab, this takes around three to four minutes.
+We train our network over 100 epochs with a batch size of 32 on shuffled data using the Adam optimizer. As our loss, we use the mean squared error between our predictions (i.e. the evaluated polynomial) and the ground truth.
 
 ## Results
 
+We measure a significant overall increase in accuracy (2.09x) with our neural network compared to the old method using linear extrapolation. Our new method increases the frontal accuracy range (where the helicopter is looking at the player, thus the hitbox is smaller) from 0.35 s to 0.55 s and the sideways accuracy range (where the hitbox is longer due to the tail) from 0.65 to 0.95 s.
 
-
+![prediction_error](https://user-images.githubusercontent.com/79590619/173598826-9e08ea87-1fbc-4b1f-83ec-b95414e94dba.png)
