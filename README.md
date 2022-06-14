@@ -9,6 +9,8 @@ Some disclaimers at first:
 ## Why a neural network?
 Conventional prediction methods...
 
+![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
+
 ## Overview
 
 We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering, etc.) to record necessary information such as vehicle position, rotation, and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance to the enemy helicopter.
