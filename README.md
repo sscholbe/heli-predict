@@ -1,5 +1,5 @@
 # Neural Network Trajectory Prediction for Battlefield 4
-This is a machine learning project I tinkered with for the past year. The goal is to increase the accuracy of an aimbot for helicopters in Battlefield 4 using neural networks.
+This is a machine learning side project I have worked on from time to time for the past few months. The goal is to increase the accuracy of an aimbot against helicopters in Battlefield 4 using neural networks. 
 
 Some disclaimers at first:
 - This project is solely for educational purposes, and I do not endorse cheating.
@@ -7,7 +7,8 @@ Some disclaimers at first:
 - I will not discuss reverse engineering of the engine, anti-cheat bypasses, etc.
 
 ## Why a neural network?
-Conventional prediction methods...
+
+Helicopters in Battlefield 4 are very agile. The proprietary Havok physics engine used in the game engine makes it even harder to understand the internal workings. 
 
 ![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
 
