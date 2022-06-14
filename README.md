@@ -22,7 +22,7 @@ Other approaches, such as fitting a higher degree polynomial on the past data to
 
 ## Overview
 
-We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering, etc.) to record necessary information such as vehicle position, rotation, and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance.
+We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering, etc.) to record necessary information such as vehicle position, rotation, and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance. Since we do not discuss reverse engineering, we simply assume everything that needs to be done can be done, and we will only focus on the neural network part.
 
 ![overview](https://user-images.githubusercontent.com/79590619/173553307-e212fe6d-dd82-415e-a120-e70a2e524bb3.png)
 
