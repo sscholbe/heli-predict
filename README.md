@@ -22,7 +22,7 @@ Other approaches, such as fitting a higher degree polynomial on the past data to
 
 ## Overview
 
-We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering, etc.) to record necessary information such as vehicle position, rotation, and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance to the enemy helicopter.
+We want our software to intercept the regular game loop (consisting of physics updates, responses to user input, rendering, etc.) to record necessary information such as vehicle position, rotation, and velocity of enemy helicopters. We then feed this information into our network to obtain a prediction. We use the prediction to automatically adjust the user's aim based on bullet speed/drop and distance.
 
 ![overview](https://user-images.githubusercontent.com/79590619/173553307-e212fe6d-dd82-415e-a120-e70a2e524bb3.png)
 
@@ -37,12 +37,12 @@ We want our software to intercept the regular game loop (consisting of physics u
 - Small footprint in memory and code to minimize the risk of detection by the Anti-Cheat system.
 
 ## Data collection
-We collected the data by flying around for approximately an hour on a local server and recording the helicopter's state at every frame using the software. This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
+We collect the data by flying around for approximately an hour on a local server and recording the helicopter's state at every frame using the software. This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
 
 ## Data preparation
 We preprocess the data by linearly interpolating all recorded values (i.e., position, rotation, and velocity vectors) over the time axis to obtain consistent frame data every 50 ms since the frame rate sometimes drops or spikes. We then traverse with a window over the data and create (X, Y) pairs where the given window consists of 20 frames (i.e., 1 second) containing position, rotation, and velocity. The prediction window consists of 20 frames containing only the position.
 
-An example of such data looks as follows. The blue line shows the recorded position change (X/Y/Z axis separately) over the last second, and the red one shows the future position change (i.e., what we want to predict).
+An example of such data looks as follows. The blue line shows the recorded position changes (X/Y/Z axis separately) over the last second, and the red one shows the future position changes (i.e., what we want to predict).
 
 ![example_data](https://user-images.githubusercontent.com/79590619/173551848-34deb616-4198-4816-8772-2bd2124ff18d.png)
 
