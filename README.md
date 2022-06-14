@@ -8,7 +8,9 @@ Some disclaimers at first:
 
 ## Why a neural network?
 
-Helicopters in Battlefield 4 are very agile. The proprietary Havok physics engine used in the game engine makes it even harder to understand the internal workings. 
+In Battlefield 4, helicopters are very agile, and bullets have ballistics, making hitting helicopters using an aimbot quite challenging. While the bullet ballistics can be well predicted (using polynomials), the helicopter trajectory cannot. The standard approach is to do linear extrapolation to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position.
+
+This approach works sufficiently for slower and larger vehicles such as tanks. However, linear extrapolation usually drastically under and overestimates the movement of helicopters. That means low accuracy, especially on longer ranges (i. e., longer bullet times).
 
 ![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
 
