@@ -12,7 +12,7 @@ Conventional prediction methods...
 
 ## Overview
 
-We want the our software to intercept the regular game loop consisting of physics updates, responses to user input, rendering etc. We record necessary information such as vehicle positions, velocities etc., to then feed this information into our network. The prediction can then be used to e.g. automatically adjust the user's aim. 
+We want our software to intercept the regular game loop consisting of physics updates, responses to user input, rendering etc. We then record necessary information such as vehicle position, rotation and velocity of enemy helicopters to feed this information into our network. The prediction can then be used to e.g. automatically adjust the user's aim. 
 
 ![overview](https://user-images.githubusercontent.com/79590619/173553307-e212fe6d-dd82-415e-a120-e70a2e524bb3.png)
 
@@ -55,7 +55,15 @@ z_2
 \right)(t-t_0)^2
 $$
 
-The network itself consists of three smaller sub-networks that predict two coefficients each (i.e. per axis). It consists of two fully connected layers, a skip connection from the input to the second layer and an ELU activation.
+The network itself consists of three smaller sub-networks that predict two coefficients each (i.e. per axis). They consist of two fully connected layers, a skip connection from the input to the second layer and an ELU activation.
 
 ![network](https://user-images.githubusercontent.com/79590619/173553347-a812efc5-1f65-4b7e-9667-04958d857d87.png)
+
+## Training
+
+We train our network over 100 epochs with a batch size of 32 on shuffled data. As our loss, we use the mean squared error between our predictions (i.e. the evaluated polynomial) and the ground truth. On Google Colab, this takes around three to four minutes.
+
+## Results
+
+
 
