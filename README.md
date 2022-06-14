@@ -8,11 +8,17 @@ Some disclaimers at first:
 
 ## Why a neural network?
 
-In Battlefield 4, helicopters are very agile, and bullets have ballistics, making hitting helicopters using an aimbot quite challenging. While the bullet ballistics can be well predicted (using polynomials), the helicopter trajectory cannot. The standard approach is to do linear extrapolation to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position.
+In Battlefield 4, helicopters are very agile, and bullets have ballistics. We usually have to aim quite distant from the location on the player screen to hit something. Since the helicopters are agile and thus hard to predict, hitting helicopters using an aimbot is quite challenging.
+
+![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
+
+While the bullet ballistics can be well predicted, the helicopter trajectory cannot. The standard approach is to do linear extrapolation to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position.
+
+![linear_extrapolation](https://user-images.githubusercontent.com/79590619/173618459-82ad9475-f0f7-49c4-ab80-71c232e91c5b.png)
 
 This approach works sufficiently for slower and larger vehicles such as tanks. However, linear extrapolation usually drastically under and overestimates the movement of helicopters. That means low accuracy, especially on longer ranges (i. e., longer bullet times).
 
-![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
+Other approaches, such as fitting a higher degree polynomial on the past data to extrapolate, do not work well since they have slow responsiveness, and historic motions usually do not truly reflect future motions. That makes it an excellent machine learning challenge.
 
 ## Overview
 
