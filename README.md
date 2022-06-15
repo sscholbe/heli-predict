@@ -87,7 +87,7 @@ We also note a larger prediction error on the Y-axis (up/down) for both methods,
 
 ![prediction_error_xyz](https://user-images.githubusercontent.com/79590619/173811595-44326de0-ff56-4f37-9116-3ccfc475dcff.png)
 
-When we study a sequence of heavy motion, we see that linear extrapolation almost always under and overestimates the movement. Our method usually reacts much faster to subtle signs of change of motion.
+When we study a sequence of heavy motion, we see that linear extrapolation almost always underestimates the movement. Our method usually reacts much faster to subtle signs of change of motion.
 
 ![animated_2d](https://user-images.githubusercontent.com/79590619/173849693-123d7aac-11db-4013-9c27-e28e90331d4b.gif)
 ![animated_3d](https://user-images.githubusercontent.com/79590619/173849706-c646df48-5c81-4ebb-ba6e-894c4197c57f.gif)
