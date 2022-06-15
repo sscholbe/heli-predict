@@ -37,14 +37,18 @@ We want our software to intercept the regular game loop (consisting of physics u
 - Small footprint in memory and code to minimize the risk of detection by the Anti-Cheat system.
 
 ## Data collection
-We collect the data by flying around for approximately an hour on a local server and recording the helicopter's state at every frame using the software. This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
+We collect the data by flying around for approximately half an hour on a local server and recording the helicopter's state at every frame using the software. This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
+
+The position data of the test set (~5 min of footage) looks as follows:
+
+![test_set](https://user-images.githubusercontent.com/79590619/173807357-bae8b8a2-6399-460b-af17-f721ab287d77.png)
 
 ## Data preparation
 We preprocess the data by linearly interpolating all recorded values (i.e., position, rotation, and velocity vectors) over the time axis to obtain consistent frame data every 50 ms since the frame rate sometimes drops or spikes. We then traverse with a window over the data and create (X, Y) pairs where the given window consists of 20 frames (i.e., 1 second) containing position, rotation, and velocity. The prediction window consists of 20 frames containing only the position.
 
-An example of such data looks as follows. The blue line shows the recorded position changes (X/Y/Z axis separately) over the last second, and the red one shows the future position changes (i.e., what we want to predict).
+An example of such data looks as follows. The blue line shows the recorded position changes over the last second (i.e., what is given to the neural network), and the red one shows the future position changes (i.e., what we want to predict).
 
-![example_data](https://user-images.githubusercontent.com/79590619/173551848-34deb616-4198-4816-8772-2bd2124ff18d.png)
+![example_data](https://user-images.githubusercontent.com/79590619/173808325-0cb1c5e1-341c-4443-ad7c-7ba10105da0b.png)
 
 ## Network architecture
 
@@ -71,7 +75,7 @@ Since the evaluation of polynomials is linear, we can add a layer to our network
 
 ## Training
 
-We train our network over 100 epochs with a batch size of 32 on shuffled data using the Adam optimizer. As our loss, we use the mean squared error between our predictions (i.e., the evaluated polynomial) and the ground truth.
+We train our network over 100 epochs with a batch size of 32 on shuffled data using the NAdam optimizer. As our loss, we use the mean squared error between our predictions (i.e., the evaluated polynomial) and the ground truth.
 
 ## Results
 
