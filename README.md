@@ -79,7 +79,7 @@ We train our network over 100 epochs with a batch size of 32 on shuffled data us
 
 ## Results
 
-We measure a **significant increase in accuracy (2.07x)** with our neural network (**NN**) compared to the old method using linear extrapolation (**LE**). We also see that the smallest hitbox (when looking from the front onto the helicopter) is covered almost entirely by the mean in our method. Since a bullet either hits the hitbox (and does damage) or doesn't, this clearly **increases our average hit rate from 56% to 82%**.
+We measure a **significant increase in accuracy (2.07x)** with our neural network (**NN**) compared to the old method using linear extrapolation (**LE**). We also see that the smallest hitbox (when looking from the front onto the helicopter) is covered almost entirely by the mean in our method. Since a bullet either hits the hitbox (and does damage) or doesn't, this **increases our average hit rate from 56% to 82%**.
 
 ![prediction_error](https://user-images.githubusercontent.com/79590619/173809531-1d0f44ae-b1e3-43bb-9d85-5646ead8f354.png)
 
