@@ -3,7 +3,7 @@ This is a machine learning side project I have worked on from time to time for t
 
 Some disclaimers at first:
 - This project is solely for educational purposes, and I do not endorse cheating.
-- I do not provide any source code.
+- I only provide source code for the Python/Keras part, not the cheat itself.
 - I do not discuss reverse engineering of the engine, anti-cheat bypasses, etc.
 
 ## Why a neural network?
