@@ -1,4 +1,4 @@
-# Neural Network Trajectory Prediction for Battlefield 4
+# Neural Network Trajectory Prediction for an Aimbot
 This is a machine learning side project I have worked on from time to time for the past few months. The goal is to increase the accuracy of an aimbot against helicopters in Battlefield 4 using neural networks. 
 
 Some disclaimers at first:
@@ -12,7 +12,7 @@ In Battlefield 4, helicopters are very agile and bullets have ballistics. We usu
 
 ![trajectory](https://user-images.githubusercontent.com/79590619/173610035-ddc35520-0058-4c15-a5ff-2a83794ec95c.png)
 
-While the bullet ballistics can be well predicted, the helicopter trajectory cannot. The standard approach is to do linear extrapolation to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position. For example, if we, at the current time, drive north with a speed of 60 km/h, we will likely have moved 1 km north in the next minute (although we could have braked, turned, etc.).
+While the bullet ballistics can be well predicted, the helicopter trajectory cannot. The standard approach is to do **linear extrapolation** to predict the future location of such vehicles. That means we take the direction or velocity at the current frame to add it to the current position. For example, if we, at the current time, drive north with a speed of 60 km/h, we will likely have moved 1 km north in the next minute (although we could have braked, turned, etc.).
 
 ![linear_extrapolation](https://user-images.githubusercontent.com/79590619/173618459-82ad9475-f0f7-49c4-ab80-71c232e91c5b.png)
 
@@ -37,7 +37,7 @@ We want our software to intercept the regular game loop (consisting of physics u
 - Small footprint in memory and code to minimize the risk of detection by the Anti-Cheat system.
 
 ## Data collection
-We collect the data by flying around for approximately half an hour on a local server and recording the helicopter's state at every frame using the software. This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
+We collect the data by flying around on a local server and recording the helicopter's state at every frame using the software (~35 min of footage). This includes time, position, rotation, and velocity. The game engine provides this data for all vehicles as it is required to render and update them.
 
 The position data of the test set (~5 min of footage) looks as follows:
 
@@ -79,9 +79,13 @@ We train our network over 100 epochs with a batch size of 32 on shuffled data us
 
 ## Results
 
-We measure a **significant increase in accuracy (2.09x)** with our neural network compared to the old method using linear extrapolation. Our new method increases the frontal accuracy range (where the helicopter is looking at the player; thus, the hitbox is smaller) from 0.35 s to 0.55 s and the sideways accuracy range (where the hitbox is longer due to the tail) from 0.65 to 0.95 s.
+We measure a **significant increase in accuracy (2.07x)** with our neural network (**NN**) compared to the old method using linear extrapolation (**LE**). We also see that the smallest hitbox (when looking from the front onto the helicopter) is covered almost entirely by the mean in our method. Since a bullet either hits the hitbox (and does damage) or doesn't, this clearly **increases our average hit rate from 56% to 82%**.
 
-![prediction_error](https://user-images.githubusercontent.com/79590619/173598826-9e08ea87-1fbc-4b1f-83ec-b95414e94dba.png)
+![prediction_error](https://user-images.githubusercontent.com/79590619/173809531-1d0f44ae-b1e3-43bb-9d85-5646ead8f354.png)
+
+We also note a larger prediction error on the Y-axis (up/down) for both methods, which we assume is due to the up/down movements being much more instantaneous in the game engine. However, our method **increases accuracy on the Y-axis by 1.75x and by 2.38x on the XZ-plane**.
+
+![prediction_error_xyz](https://user-images.githubusercontent.com/79590619/173811595-44326de0-ff56-4f37-9116-3ccfc475dcff.png)
 
 ## Application in practice
 
