@@ -1,4 +1,4 @@
-# Neural Network Trajectory Prediction for an Aimbot
+# Neural Network Trajectory Prediction for Helicopters in Battlefield 4
 This is a machine learning side project I have worked on from time to time for the past few months. The goal is to increase the accuracy of an aimbot against helicopters in Battlefield 4 using neural networks. 
 
 Some disclaimers at first:
