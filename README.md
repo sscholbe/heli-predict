@@ -100,7 +100,9 @@ When we study a sequence of heavy motion, we see that linear extrapolation almos
 
 With the trajectory prediction working, we can create an aimbot by finding the intersection between a bullet trajectory (which can be well approximated using a polynomial of degree two) and the predicted helicopter trajectory polynomial. We then simulate user input to aim at the correct location and shoot. The following animations show the aimbot in action.
 
-_- TBD -_
+Tracking only (no shooting):
+
+![tracking_only](https://user-images.githubusercontent.com/79590619/174455655-7744e21c-b5d0-4c71-8ffb-b9568a69f808.gif)
 
 ## ToDo's
 
