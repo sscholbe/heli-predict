@@ -81,7 +81,7 @@ Since the evaluation of polynomials is linear, we can add a layer to our network
 
 ## Training
 
-We train our network over 100 epochs with a batch size of 32 on shuffled data using the NAdam optimizer. As our loss, we use the mean squared error between our predictions (i.e., the evaluated polynomial) and the ground truth.
+We train our network over 100 epochs with a batch size of 32 on shuffled data using the Nesterov Adam optimizer. As our loss, we use the mean squared error between our predictions (i.e., the evaluated polynomial) and the ground truth.
 
 ## Results
 
@@ -98,8 +98,6 @@ When we study a sequence of heavy motion, we see that linear extrapolation almos
 ![animated_2d](https://user-images.githubusercontent.com/79590619/173849693-123d7aac-11db-4013-9c27-e28e90331d4b.gif)
 ![animated_3d](https://user-images.githubusercontent.com/79590619/173849706-c646df48-5c81-4ebb-ba6e-894c4197c57f.gif)
 
-
-
 ## Application in practice
 
 With the trajectory prediction working, we can create an aimbot by finding the intersection between a bullet trajectory (which can be well approximated using a polynomial of degree two) and the predicted helicopter trajectory polynomial. We then simulate user input to aim at the correct location and shoot. The following animations show the aimbot in action: the blue line is the recording, the red line is the prediction, and the red square is the intersection between bullet trajectory and helicopter trajectory. The trajectory is rendered in-game in real time.
@@ -110,4 +108,4 @@ Tracking only (no shooting):   |  Tracking and shooting:
 
 ## ToDo's
 
-This model is still imperfect, but it is already very performant and shows promising results in practice. However, predicting a trajectory also means predicting the pilot's future actions. Thus it might be wiser to have a statistical model (i.e., to introduce non-determinism) that represents multiple possible future movements. Yet, this is my first big machine learning project, and I surely will improve it when I learn new methods at ETH.
+This model is still imperfect but is already very performant and shows promising results in practice. However, predicting a trajectory also means predicting the pilot's future actions; thus, it might be wiser to represent the movement as a statistical model. We could introduce stochasticity by relying on a latent variable to learn the underlying feature distribution, where the features could be, for example, the pilot's input actions on the vehicle.
