@@ -1,5 +1,9 @@
 # Neural Network Trajectory Prediction for Helicopters in Battlefield 4
-This is a machine learning side project I have worked on from time to time for the past few months. The goal is to increase the accuracy of an aimbot against attack helicopters in Battlefield 4 using neural networks. 
+This is a machine learning side project I have worked on from time to time for the past few months. The goal is to increase the accuracy of an aimbot against attack helicopters in Battlefield 4 using neural networks.
+
+Tracking only (no shooting):   |  Tracking and shooting:
+:-------------------------:|:-------------------------:
+![tracking_only](https://user-images.githubusercontent.com/79590619/174455655-7744e21c-b5d0-4c71-8ffb-b9568a69f808.gif)  |  ![tracking_shoot](https://user-images.githubusercontent.com/79590619/174471950-dd17aea1-e722-4726-93d3-1fc1b5fdf97f.gif)
 
 In this repo, you will find the Jupyter Notebook for the Python/Keras part and the raw training and test data (as .csv files).
 
